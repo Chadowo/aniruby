@@ -18,6 +18,5 @@ Gem::Specification.new do |spec|
   spec.require_paths = ['lib']
 
   spec.add_runtime_dependency('gosu', ['>= 1.4.6'])
-
   spec.add_developmment_dependency('minitest', ['~> 5.17.0'])
 end
