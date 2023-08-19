@@ -5,6 +5,9 @@ jobs:
   run-minitest:
     runs-on: ubuntu-latest
     steps:
+      - name: Install Gosu dependencies
+        run: sudo apt-get update && sudo apt-get install -y libsdl2-dev libgl1-mesa-dev libfontconfig1-dev xvfb
+
       - uses: actions/checkout@v2
       - name: Set up Ruby
         uses: ruby/setup-ruby@v1
