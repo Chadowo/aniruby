@@ -22,3 +22,8 @@ task :clean do
 
   FileUtils.rm_rf('pkg')
 end
+
+desc 'Use YARD to generate documentation'
+task :doc do
+  sh 'yardoc'
+end
