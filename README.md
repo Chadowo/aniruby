@@ -58,7 +58,7 @@ each sprite of the animation, that's the first argument to `Animation#new`, then
 you'll need the dimensions of each individual sprite on your spritesheet, in the
 example provided each sprite in the spritesheet is 32x32.
 
-That is the bare mininum, you can specify filter type (retro in gosu's API), looping
+That is the bare minimum, you can specify filter type (retro in gosu's API), looping
 and duration (for each individual frame too!).
 
 provided you have the initilization right, you need to `update` your animation for it
