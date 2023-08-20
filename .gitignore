@@ -1,3 +1,10 @@
+# Builded gem
 *.gem
 
+# Hidden generated directories
+.git
+.yardoc
+
+# Generated directories
 pkg/
+doc/
