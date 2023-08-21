@@ -7,6 +7,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## 0.1.2 - 2023-08-20
+
+### Changed
+
+- Downcased the gem name in the gemspec
+
 ## 0.1.1 - 2023-08-20
 
 ### Added
@@ -16,7 +22,6 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Fixed
 
 - Required ruby not being used correctly in gemspec
-
 
 ## 0.1.0 - 2023-08-20
 
