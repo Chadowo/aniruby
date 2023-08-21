@@ -1,7 +1,9 @@
 
 module AniRuby
+  # A frame has a sprite and a duration in milliseconds
   class Frame
-    attr_accessor :duration, :sprite, :width, :height
+    attr_accessor :duration, :sprite
+    attr_reader :w, :h
 
     def initialize(sprite, duration = 100)
       @sprite = sprite
