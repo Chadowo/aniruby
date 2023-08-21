@@ -2,8 +2,9 @@
 require_relative 'lib/aniruby/version'
 
 Gem::Specification.new do |spec|
-  spec.name        = 'AniRuby'
+  spec.name        = 'aniruby'
   spec.version     = AniRuby::VERSION
+  spec.date        = Time.now.strftime "%Y-%m-%d"
   spec.authors     = ['Chadow']
   spec.homepage    = 'https://github.com/Chadowo/aniruby'
 
