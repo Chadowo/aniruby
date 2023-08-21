@@ -19,8 +19,12 @@ end
 
 desc 'Clean the build enviroment'
 task :clean do
-
   FileUtils.rm_rf('pkg')
+end
+
+desc 'Push the gem to RubyGems'
+task :push do
+  sh "gem push pkg/AniRuby-#{AniRuby::VERSION}.gem"
 end
 
 desc 'Use YARD to generate documentation'
