@@ -1,5 +1,7 @@
 # AniRuby
 
+[![Gem Version](https://badge.fury.io/rb/aniruby.svg)](https://badge.fury.io/rb/aniruby)
+
 Make sprite animations on Gosu simple and easy.
 
 ## Summary
@@ -71,7 +73,7 @@ much more than single coordinates. there's `Animation#draw_rot` too!
 
 - more fine-grained control of animation
 - being able to make an animation stitching `Gosu::Image`'s together
-- mirroring 
+- mirroring
 
 ## License
 
