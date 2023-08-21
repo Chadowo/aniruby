@@ -14,7 +14,7 @@ task :build do
 
   sh 'gem build aniruby.gemspec'
 
-  FileUtils.mv("AniRuby-#{AniRuby::VERSION}.gem", 'pkg')
+  FileUtils.mv("aniruby-#{AniRuby::VERSION}.gem", 'pkg')
 end
 
 desc 'Clean the build enviroment'
@@ -24,7 +24,7 @@ end
 
 desc 'Push the gem to RubyGems'
 task :push do
-  sh "gem push pkg/AniRuby-#{AniRuby::VERSION}.gem"
+  sh "gem push pkg/aniruby-#{AniRuby::VERSION}.gem"
 end
 
 desc 'Use YARD to generate documentation'
