@@ -2,8 +2,8 @@
 *.gem
 
 # Hidden generated directories
-.git
-.yardoc
+.git/
+.yardoc/
 
 # Generated directories
 pkg/
