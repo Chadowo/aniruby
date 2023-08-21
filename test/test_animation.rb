@@ -42,8 +42,8 @@ class AnimationTest < Minitest::Test
   end
 
   def test_duration
-    @sample_animation.frames.each do |f|
-      assert_equal @duration, f.duration
+    @sample_animation.frames.each do |frame|
+      assert_equal @duration, frame.duration
     end
   end
 
