@@ -13,9 +13,10 @@ Gem::Specification.new do |spec|
     and nifty API, made in pure Ruby with no dependencies at all!
   DESC
 
-  spec.required_ruby_version = ">= 2.5.0"
+  spec.required_ruby_version = Gem::Requirement.new(">= 2.5.0")
 
   spec.files       = Dir.glob('lib/**/*') + %w(Rakefile)
+  spec.files       += %w(README.md CHANGELOG.md LICENSE .yardopts)
   spec.license     = 'MIT'
 
   spec.require_paths = ['lib']
