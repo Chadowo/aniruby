@@ -84,7 +84,7 @@ Ain't that nice?
 
 ### Drawing
 
-You can draw an animation like any other `Gosu::Image`! Sn animation has both
+You can draw an animation like any other `Gosu::Image`! An animation has both
 `Animation#draw` and `Animation#draw_rot`, these methods mimic the ones on Gosu, so you don't
 have to learn anything new.
 
