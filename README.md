@@ -71,9 +71,9 @@ spritesheet will be divided like this:
 
 ![example spritesheet quads](assets/example_spritesheet_quads.png)
 
-That is the bare minimum, to get an animation, of course you can use Gosu's retro
-option so pixel animations when scaled will still look crisp, looping or the duration
-of the animation (or for every individual frame even!).
+That's the bare minimum to get an animation, of course you can enable Gosu's retro
+option so pixel animations will still look crisp when scaled, enable looping or specify
+the duration of the animation (or for every frame even!).
 
 In the example above we initialize the animation with retro off, looping on and
 with a duration of 0.15 (150ms) for every frame. So we'll get something like this:
