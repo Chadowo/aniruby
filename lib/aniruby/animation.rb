@@ -17,11 +17,11 @@ module AniRuby
     # @param frame_h [Integer] The height of each individual frame
     # @param retro [Boolean] If true, the animation will not be interpolated when scaled
     # @param loop [Boolean] If true, the animation will loop indefinitely
-    # @param durations [Integer] The duration of the frames in milliseconds (500
-    #                             is half a second, 1000 a second, etc). If
-    #                             there's more than one duration, then they will
-    #                             be mapped to each frame of the animation, the
-    #                             frames with no specified duration will default to 100
+    # @param durations [Float] The duration of the frames in MS (0.5 is half a second,
+    #                              1.0 a second, etc). If there's more than one duration
+    #                              provided they will be mapped to each frame of the
+    #                              animation. The default for each frame is 0.1.
+    #
     #
     # @return [Animation] A new animation ready to play
     def initialize(spritesheet, frame_w, frame_h, retro = false, loop = true, *durations)
@@ -147,7 +147,7 @@ module AniRuby
 
     # Set the duration for all frames in the animation
     #
-    # @param ms [Integer] The new duration in milliseconds
+    # @param ms [Float] The new duration in milliseconds
     def duration(ms)
       @frames.each { |frame| frame.duration = ms}
     end
@@ -157,7 +157,7 @@ module AniRuby
     # @return [Boolean]
     # @note This method will return true in intervals if the animation loops
     def done?
-      true if @current_frame == @frames.size - 1
+      true if @current_frame == @frames.count - 1
     end
 
     # Is the animation paused?
@@ -173,12 +173,12 @@ module AniRuby
     #
     # @return [AniRuby::Frame]
     def get_current_frame
-      @frames[@current_frame % @frames.size]
+      @frames[@current_frame % @frames.count]
     end
 
     # Has the current frame's duration expired?
     def frame_expired?
-      now = Gosu.milliseconds
+      now = Gosu.milliseconds / 1000.0
       @last_frame ||= now
 
       if (now - @last_frame) > @frames[@current_frame].duration

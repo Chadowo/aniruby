@@ -1,6 +1,6 @@
 
 module AniRuby
-  # Collection of frames, with Enumerable included to add iteration functions
+  # Collection of frames
   class Frames
     include Enumerable
 
@@ -14,6 +14,8 @@ module AniRuby
     end
 
     # @param index [Integer]
+    #
+    # @return [Frame]
     def [](index)
       @frames[index]
     end

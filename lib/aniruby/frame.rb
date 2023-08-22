@@ -1,11 +1,18 @@
 
 module AniRuby
-  # A frame has a sprite and a duration in milliseconds
+  # A frame has a sprite that's Gosu::Image and a duration specified in
+  # milliseconds
   class Frame
     attr_accessor :duration, :sprite
     attr_reader :w, :h
 
-    def initialize(sprite, duration = 100)
+    # Create a new frame
+    #
+    # @param sprite [Gosu::Image]
+    # @param duration [Float]
+    #
+    # @return [Frame]
+    def initialize(sprite, duration = 0.1)
       @sprite = sprite
       @duration = duration
 
