@@ -7,6 +7,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## Unreleased
 
+## 0.1.3 - 2023-08-22
+
 ### Fixed
 
 - Undefined method error in animation, when using `size` on `AniRuby::Frames`, now
@@ -14,9 +16,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Changed
 
-- The way milliseconds are represented as duration, before you'll have to use whole numbers
-  in the range of hundreds (1000 is a second, 500 half a second and so on), now
-  we can just use floats for that (1.0 os a second, 0.5 half a second and so on).
+- The way milliseconds are used as duration, before you'll have to use whole numbers
+  (1000 is a second, 500 half a second and so on), now we can just use floats for that (1.0 as a second, 0.5 half a second and so on).
 
 ## 0.1.2 - 2023-08-20
 
