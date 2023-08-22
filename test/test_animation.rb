@@ -11,7 +11,7 @@ class AnimationTest < Minitest::Test
   def setup
     @sprite_w = 16
     @sprite_h = 23
-    @duration = 200
+    @duration = 0.2
 
     # The animation got 4 frames
     @sample_animation = AniRuby::Animation.new(media_dir('king_walk.png'),

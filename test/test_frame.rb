@@ -18,7 +18,7 @@ class FrameTest < Minitest::Test
                                                @sprite_h,
                                                false,
                                                true,
-                                               300, 300)
+                                               0.3, 0.3)
 
   end
 
@@ -32,14 +32,14 @@ class FrameTest < Minitest::Test
    # We provide 300ms as duration for two frames
   def test_custom_duration
     @sample_animation.frames[0..1].each do |f|
-      assert_equal 300, f.duration
+      assert_equal 0.3, f.duration
     end
   end
 
   # The default is 100ms
   def test_default_duration
     @sample_animation.frames[2..3].each do |f|
-      assert_equal 100, f.duration
+      assert_equal 0.1, f.duration
     end
   end
 end

@@ -27,13 +27,13 @@ class FramesTest < Minitest::Test
 
   def test_map
     mapped_frames = @sample_animation.frames.map do |frame|
-      frame.duration = 50
+      frame.duration = 0.5
 
       frame
     end
 
     mapped_frames.each do |frame|
-      assert_equal 50, frame.duration
+      assert_equal 0.5, frame.duration
     end
   end
 
