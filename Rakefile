@@ -6,7 +6,7 @@ require_relative 'lib/aniruby/version'
 
 Minitest::TestTask.create
 
-task :default => :build
+task :default => :test
 
 desc 'Build the gem'
 task :build do
