@@ -114,4 +114,4 @@ Then you can use rake to build or test gem.
 
 ## License
 
-[MIT](LICENSE)
+This library is licensed under the [MIT](LICENSE) license.
