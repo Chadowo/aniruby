@@ -1,6 +1,6 @@
 # AniRuby
 
-[![Gem Version](https://badge.fury.io/rb/aniruby.svg)](https://badge.fury.io/rb/aniruby)
+![Gem (including prereleases)](https://img.shields.io/gem/v/aniruby?style=flat-square&color=blue)
 
 Make sprite animations on Gosu simple and easy.
 
