@@ -3,8 +3,17 @@ module AniRuby
   # A frame has a sprite that's Gosu::Image and a duration specified in
   # milliseconds
   class Frame
-    attr_accessor :duration, :sprite
-    attr_reader :w, :h
+    # @return [Float]
+    attr_accessor :duration
+
+    # @return [Gosu::Image]
+    attr_accessor :sprite
+
+    # @return [Integer]
+    attr_reader :width, :height
+
+    alias :w :width
+    alias :h :height
 
     # Create a new frame
     #
@@ -16,8 +25,8 @@ module AniRuby
       @sprite = sprite
       @duration = duration
 
-      @w = @sprite.width
-      @h = @sprite.height
+      @width = @sprite.width
+      @height = @sprite.height
     end
   end
 end

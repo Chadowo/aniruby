@@ -7,7 +7,7 @@ module AniRuby
     attr_accessor :frames
     # @return [Integer] The current frame index of the animation
     attr_accessor :current_frame
-    # @return [Boolean] The loop status of the animation
+    # @return [Boolean] The loop parameter
     attr_accessor :loop
 
     # Create a new animation
@@ -21,7 +21,6 @@ module AniRuby
     #                              1.0 a second, etc). If there's more than one duration
     #                              provided they will be mapped to each frame of the
     #                              animation. The default for each frame is 0.1.
-    #
     #
     # @return [Animation] A new animation ready to play
     def initialize(spritesheet, frame_w, frame_h, retro = false, loop = true, *durations)
@@ -55,15 +54,19 @@ module AniRuby
     #
     # @return [Integer]
     def width
-      @frames[@current_frame].sprite.width
+      @frames[@current_frame].width
     end
+
+    alias :w :width
 
     # Get the height of the current frame's image
     #
     # @return [Integer]
     def height
-      @frames[@current_frame].sprite.height
+      @frames[@current_frame].height
     end
+
+    alias :h :height
 
     # Update the animation, advancing the frame counter. Note that this won't do
     # do anything if the animation is paused or has finished
