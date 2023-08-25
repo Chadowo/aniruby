@@ -25,5 +25,6 @@ Gem::Specification.new do |spec|
   spec.add_runtime_dependency('gosu', ['>= 1.4.6'])
 
   spec.add_development_dependency('minitest', ['~> 5.17.0'])
+  spec.add_development_dependency('minitest-reporters', ['~> 1.6.0'])
   spec.add_development_dependency('rake', ['~> 13.0.0'])
 end
