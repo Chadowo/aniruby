@@ -13,7 +13,7 @@ class AnimationTest < Minitest::Test
     @sprite_h = 23
     @duration = 0.2
 
-    # The animation got 4 frames
+    # This animation has 4 frames
     @sample_animation = AniRuby::Animation.new(media_dir('king_walk.png'),
                                                @sprite_w,
                                                @sprite_h,
@@ -47,6 +47,14 @@ class AnimationTest < Minitest::Test
     end
   end
 
+  def test_can_set_duration
+    @sample_animation.duration(0.3)
+
+    @sample_animation.frames.each do |frame|
+      assert_equal 0.3, frame.duration
+    end
+  end
+
   def test_frames_count
     assert_equal 4, @sample_animation.frames.count
   end
@@ -62,5 +70,15 @@ class AnimationTest < Minitest::Test
     @sample_animation.resume
 
     assert_equal false, @sample_animation.paused?
+  end
+
+  def test_can_be_reset
+    @sample_animation.current_frame = 2
+
+    assert_equal 2, @sample_animation.current_frame
+
+    @sample_animation.reset
+
+    assert_equal 0, @sample_animation.current_frame
   end
 end
