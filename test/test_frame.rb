@@ -12,7 +12,7 @@ class FrameTest < Minitest::Test
     @sprite_w = 16
     @sprite_h = 23
 
-    # Note how we've passed only two durations to the animation
+    # Note how we've only passed two durations to the animation
     @sample_animation = AniRuby::Animation.new(media_dir('king_walk.png'),
                                                @sprite_w,
                                                @sprite_h,
