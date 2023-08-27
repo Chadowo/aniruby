@@ -1,6 +1,6 @@
 
 require 'fileutils'
-require "minitest/test_task"
+require 'minitest/test_task'
 
 require_relative 'lib/aniruby/version'
 
