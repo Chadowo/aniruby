@@ -23,7 +23,11 @@ module AniRuby
     #                              animation. The default for each frame is 0.1.
     #
     # @return [Animation] A new animation ready to play
-    def initialize(spritesheet, frame_w, frame_h, retro = false, loop = true, *durations)
+    def initialize(spritesheet,
+                   frame_w, frame_h,
+                   retro = false,
+                   loop = true,
+                   *durations)
       @frame_w = frame_w
       @frame_h = frame_h
 
