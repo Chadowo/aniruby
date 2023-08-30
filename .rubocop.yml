@@ -1,0 +1,43 @@
+AllCops:
+  NewCops: enable
+
+Layout/LeadingEmptyLines:
+  Description: Check for unnecessary blank lines at the beginning of a file.
+  Enabled: false
+  VersionAdded: '0.57'
+  VersionChanged: '0.77'
+
+Style/FrozenStringLiteralComment:
+  Description: >-
+                 Add the frozen_string_literal comment to the top of files
+                 to help transition to frozen string literals by default.
+  Enabled: true
+  VersionAdded: '0.36'
+  VersionChanged: '0.79'
+  EnforcedStyle: never
+  SupportedStyles:
+    - always
+    - always_true
+    - never
+  SafeAutoCorrect: false
+
+Metrics/MethodLength:
+  Description: 'Avoid methods longer than 10 lines of code.'
+  StyleGuide: '#short-methods'
+  Enabled: true
+  VersionAdded: '0.25'
+  VersionChanged: '1.5'
+  CountComments: false
+  Max: 50
+  CountAsOne: []
+  AllowedMethods: []
+  AllowedPatterns: []
+
+Metrics/ModuleLength:
+  Description: 'Avoid modules longer than 100 lines of code.'
+  Enabled: true
+  VersionAdded: '0.31'
+  VersionChanged: '0.87'
+  CountComments: false
+  Max: 150
+  CountAsOne: []
