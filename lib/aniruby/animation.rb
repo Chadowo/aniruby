@@ -156,7 +156,7 @@ module AniRuby
     #
     # @param ms [Float] The new duration in milliseconds
     def duration(ms)
-      @frames.each { |frame| frame.duration = ms}
+      @frames.each { |frame| frame.duration = ms }
     end
 
     # Is the animation finished?
