@@ -24,7 +24,7 @@ class AnimationTest < Minitest::Test
   end
 
   def test_starts_at_zero
-    assert_equal 0, @sample_animation.current_frame
+    assert_equal 0, @sample_animation.position
   end
 
   # The width of the current frame
@@ -73,12 +73,12 @@ class AnimationTest < Minitest::Test
   end
 
   def test_can_be_reset
-    @sample_animation.current_frame = 2
+    @sample_animation.position = 2
 
-    assert_equal 2, @sample_animation.current_frame
+    assert_equal 2, @sample_animation.position
 
     @sample_animation.reset
 
-    assert_equal 0, @sample_animation.current_frame
+    assert_equal 0, @sample_animation.position
   end
 end
