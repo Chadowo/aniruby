@@ -12,6 +12,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - aliased `Animation#width` and `Animation#height` to `w` and `h` respectively, the same was done
 for `Frame`
 
+### Changed
+
+- `Animation#get_current_frame` is now `Animation#current_frame` as to not be redundant. Following that now `Animation#current_frame`(The accessor for the instance variable) is renamed to `Animation#position`
+
 ## 0.1.3 - 2023-08-22
 
 ### Fixed
