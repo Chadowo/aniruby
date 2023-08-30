@@ -6,7 +6,7 @@ module AniRuby
     # @return [AniRuby::Frames] The collection of frames this animation uses
     attr_accessor :frames
     # @return [Integer] The current frame index of the animation
-    attr_accessor :current_frame
+    attr_accessor :position
     # @return [Boolean] The loop parameter
     attr_accessor :loop
 
@@ -33,7 +33,7 @@ module AniRuby
 
       @loop = loop
 
-      @current_frame = 0
+      @position = 0
       @pause = false
 
       @frames = AniRuby::Frames.new(Gosu::Image.load_tiles(spritesheet,
@@ -58,7 +58,7 @@ module AniRuby
     #
     # @return [Integer]
     def width
-      @frames[@current_frame].width
+      @frames[@position].width
     end
 
     alias :w :width
@@ -67,7 +67,7 @@ module AniRuby
     #
     # @return [Integer]
     def height
-      @frames[@current_frame].height
+      @frames[@position].height
     end
 
     alias :h :height
@@ -77,7 +77,7 @@ module AniRuby
     def update
       return if done? || paused?
 
-      @current_frame += 1 if frame_expired?
+      @position += 1 if frame_expired?
     end
 
     # Draw the animation
@@ -100,7 +100,7 @@ module AniRuby
 
       frame.sprite.draw(x, y, z, scale_x, scale_y, color, mode)
 
-      @current_frame = 0 if @loop && done?
+      @position = 0 if @loop && done?
     end
 
     # Draw the animation rotated, with its rotational center at (x, y).
@@ -130,7 +130,7 @@ module AniRuby
       frame.sprite.draw_rot(x, y, z, angle, center_x, center_y, scale_x, scale_y, color, mode)
 
       # Loop the animation
-      @current_frame = 0 if @loop && done?
+      @position = 0 if @loop && done?
     end
 
     # Pause the animation
@@ -149,7 +149,7 @@ module AniRuby
 
     # Set the animation to the beginning frame
     def reset
-      @current_frame = 0
+      @position = 0
     end
 
     # Set the duration for all frames in the animation
@@ -164,7 +164,7 @@ module AniRuby
     # @return [Boolean]
     # @note This method will return true in intervals if the animation loops
     def done?
-      true if @current_frame == @frames.count - 1
+      true if @position == @frames.count - 1
     end
 
     # Is the animation paused?
@@ -179,8 +179,8 @@ module AniRuby
     # Get the current frame
     #
     # @return [AniRuby::Frame]
-    def get_current_frame
-      @frames[@current_frame % @frames.count]
+    def current_frame
+      @frames[@position % @frames.count]
     end
 
     # Has the current frame's duration expired?
@@ -188,7 +188,7 @@ module AniRuby
       now = Gosu.milliseconds / 1000.0
       @last_frame ||= now
 
-      if (now - @last_frame) > @frames[@current_frame].duration
+      if (now - @last_frame) > @frames[@position].duration
         @last_frame = now
       end
     end
