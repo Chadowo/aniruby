@@ -10,11 +10,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Added
 
 - aliased `Animation#width` and `Animation#height` to `w` and `h` respectively, the same was done
-for `Frame`
+for `Frame`.
 
 ### Changed
 
-- `Animation#get_current_frame` is now `Animation#current_frame` as to not be redundant. Following that now `Animation#current_frame`(The accessor for the instance variable) is renamed to `Animation#position`
+- `Animation#get_current_frame` is now `Animation#current_frame` as to not be redundant. Following that now `Animation#current_frame`(The accessor for the instance variable) is renamed to `Animation#position`.
 
 ## 0.1.3 - 2023-08-22
 
@@ -32,18 +32,18 @@ for `Frame`
 
 ### Changed
 
-- Downcased the gem name in the gemspec
+- Downcased the gem name in the gemspec.
 
 ## 0.1.1 - 2023-08-20
 
 ### Added
 
-- Add .yardopts to included files
+- Add .yardopts to included files.
 
 ### Fixed
 
-- Required ruby not being used correctly in gemspec
+- Required ruby not being used correctly in gemspec.
 
 ## 0.1.0 - 2023-08-20
 
-Initial release
+Initial release.
