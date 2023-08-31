@@ -16,6 +16,15 @@ for `Frame`.
 
 - `Animation#get_current_frame` is now `Animation#current_frame` as to not be redundant. Following that now `Animation#current_frame`(The accessor for the instance variable) is renamed to `Animation#position`.
 
+### Fixed
+
+- Previously methods like `Animation#done?` or `Animation#resume` didn't return `self`, so it wasn't possible to chaint them like this
+  ```ruby
+  # Example
+  my_animation.pause.resume.duration(200)
+  ```
+  now they do so you can do that.
+
 ## 0.1.3 - 2023-08-22
 
 ### Fixed
