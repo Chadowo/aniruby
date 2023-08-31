@@ -138,6 +138,8 @@ module AniRuby
     # (see {resume})
     def pause
       @pause = true
+
+      self
     end
 
     # Resume the animation
@@ -145,11 +147,15 @@ module AniRuby
     # (see {pause})
     def resume
       @pause = false
+
+      self
     end
 
     # Set the animation to the beginning frame
     def reset
       @position = 0
+
+      self
     end
 
     # Set the duration for all frames in the animation
@@ -157,6 +163,8 @@ module AniRuby
     # @param ms [Float] The new duration in milliseconds
     def duration(ms)
       @frames.each { |frame| frame.duration = ms }
+
+      self
     end
 
     # Is the animation finished?
@@ -165,6 +173,8 @@ module AniRuby
     # @note This method will return true in intervals if the animation loops
     def done?
       true if @position == @frames.count - 1
+
+      false
     end
 
     # Is the animation paused?
