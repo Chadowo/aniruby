@@ -7,6 +7,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## Unreleased
 
+## 0.2.0 - 2023-09-02
+
+This release brings mostly improvements and fixes, however there's not that much
+new feture yet.
+
 ### Added
 
 - aliased `Animation#width` and `Animation#height` to `w` and `h` respectively, the same was done
