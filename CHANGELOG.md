@@ -10,7 +10,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## 0.2.0 - 2023-09-02
 
 This release brings mostly improvements and fixes, however there's not that much
-new feture yet.
+new features yet.
 
 ### Added
 
