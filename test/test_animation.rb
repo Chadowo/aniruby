@@ -27,6 +27,18 @@ class AnimationTest < Minitest::Test
     assert_equal 0, @sample_animation.position
   end
 
+  def test_can_set_frame
+    @sample_animation.position = 1
+
+    assert_equal 1, @sample_animation.position
+  end
+
+  def test_is_done
+    @sample_animation.position = @sample_animation.frames.count - 1
+
+    assert_equal true, @sample_animation.done?
+  end
+
   # The width of the current frame
   def test_sprite_width
     assert_equal @sprite_w, @sample_animation.width
