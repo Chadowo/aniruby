@@ -7,6 +7,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## Unreleased
 
+## 0.2.1 - 2023-09-07
+
 ### Fixed
 
 - **Important**: in v0.2.0 one of the notable changes is that the instance variable `current_frame` was changed to `position`, following that there was
