@@ -19,9 +19,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
   independently of if the animation was finished, this was because I forgot to add a `return` in
   the condition check for the `true`.
 - `Animation#update` now resets the animation, instead of `Animation#draw`  
-or `Animation#draw_rot` (I know, that sounds unintuitive). This (I think) fixes a precision problem when drawing the last frame
+or `Animation#draw_rot` (I know, that sounds counterintuitive). This (I think) fixes a precision problem when drawing the last frame
 of an animation, in the which it was drawn for less time than required.
-
 
 ## 0.2.0 - 2023-09-02
 
@@ -39,7 +38,7 @@ for `Frame`.
 
 ### Fixed
 
-- Previously methods like `Animation#done?` or `Animation#resume` didn't return `self`, so it wasn't possible to chaint them like this
+- Previously methods like `Animation#pause?` or `Animation#resume` didn't return `self`, so it wasn't possible to chaint them like this
   ```ruby
   # Example
   my_animation.pause.resume.duration(200)
