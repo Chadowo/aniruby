@@ -7,6 +7,20 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## Unreleased
 
+### Fixed
+
+- **Important**: in v0.2.0 one of the notable changes is that the instance variable `current_frame` was changed to `position`, following that there was
+  the need to change every use of `@current_frame` to `@position`, however
+  since I wasn't thorough enough I forgot to do that in the `Animation#draw` and `Animation#draw_rot`
+  methods, effectively rendering them useless.
+- **Important**: There was a error in `Animation#done?` too, where it'll return `false` always    
+  independently of if the animation was finished, this was because I forgot to add a `return` in
+  the condition check for the `true`.
+- `Animation#update` now resets the animation, instead of `Animation#draw`  
+or `Animation#draw_rot` (I know, that sounds unintuitive). This (I think) fixes a precision problem when drawing the last frame
+of an animation, in the which it was drawn for less time than required.
+
+
 ## 0.2.0 - 2023-09-02
 
 This release brings mostly improvements and fixes, however there's not that much

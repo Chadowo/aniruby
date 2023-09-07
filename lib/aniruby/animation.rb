@@ -75,9 +75,13 @@ module AniRuby
     # Update the animation, advancing the frame counter. Note that this won't do
     # do anything if the animation is paused or has finished
     def update
-      return if done? || paused?
+      return unless frame_expired? && !paused?
 
-      @position += 1 if frame_expired?
+      if !done?
+        @position += 1
+      elsif done? && @loop
+        @position = 0
+      end
     end
 
     # Draw the animation
@@ -96,11 +100,9 @@ module AniRuby
              scale_y = 1,
              color = Gosu::Color::WHITE,
              mode = :default)
-      frame = @frames[@current_frame]
+      frame = @frames[@position]
 
       frame.sprite.draw(x, y, z, scale_x, scale_y, color, mode)
-
-      @position = 0 if @loop && done?
     end
 
     # Draw the animation rotated, with its rotational center at (x, y).
@@ -125,12 +127,9 @@ module AniRuby
                  scale_y = 1,
                  color = Gosu::Color::WHITE,
                  mode = :default)
-      frame = @frames[@current_frame]
+      frame = @frames[@position]
 
       frame.sprite.draw_rot(x, y, z, angle, center_x, center_y, scale_x, scale_y, color, mode)
-
-      # Loop the animation
-      @position = 0 if @loop && done?
     end
 
     # Pause the animation
@@ -172,7 +171,7 @@ module AniRuby
     # @return [Boolean]
     # @note This method will return true in intervals if the animation loops
     def done?
-      true if @position == @frames.count - 1
+      return true if @position == @frames.count - 1
 
       false
     end
