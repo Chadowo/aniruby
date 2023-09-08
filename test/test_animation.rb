@@ -19,7 +19,6 @@ class AnimationTest < Minitest::Test
                                                false,
                                                true,
                                                @duration)
-
   end
 
   def test_starts_at_zero
@@ -69,7 +68,6 @@ class AnimationTest < Minitest::Test
   def test_frames_count
     assert_equal 4, @sample_animation.frames.count
   end
-
 
   def test_can_be_paused
     @sample_animation.pause
