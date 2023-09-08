@@ -44,7 +44,7 @@ class AnimationTest < Minitest::Test
     assert_equal @sprite_w, @sample_animation.width
   end
 
-# The width of the current frame
+  # The width of the current frame
   def test_sprite_height
     assert_equal @sprite_h, @sample_animation.height
   end
@@ -85,12 +85,11 @@ class AnimationTest < Minitest::Test
   end
 
   def test_can_be_reset
+    # Set the position to something else than zero
     @sample_animation.position = 2
-
     assert_equal 2, @sample_animation.position
 
     @sample_animation.reset
-
     assert_equal 0, @sample_animation.position
   end
 end
