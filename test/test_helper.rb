@@ -1,4 +1,5 @@
 
+require 'gosu'
 require 'minitest/reporters'
 
 module TestHelper
