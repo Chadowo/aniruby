@@ -18,7 +18,6 @@ class FrameTest < Minitest::Test
                                                false,
                                                true,
                                                0.3, 0.3)
-
   end
 
   # The sprite of a frame is a simple Gosu::Image
