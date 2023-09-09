@@ -94,7 +94,7 @@ module AniRuby
     # @param color [Gosu::Color] The color to usw when drawing
     # @param mode [:default, :additive] The blending mode
     #
-    # (see {draw_rot})
+    # (see also {draw_rot})
     def draw(x, y, z = 0,
              scale_x = 1,
              scale_y = 1,
@@ -118,7 +118,7 @@ module AniRuby
     # @param color [Gosu::Color] The color to usw when drawing
     # @param mode [:default, :additive] The blending mode
     #
-    # (see {draw})
+    # (see also {draw})
     def draw_rot(x, y, z = 0,
                  angle = 0,
                  center_x = 0.5,
@@ -134,7 +134,7 @@ module AniRuby
 
     # Pause the animation
     #
-    # (see {resume})
+    # (see also {resume})
     def pause
       @pause = true
 
@@ -143,7 +143,7 @@ module AniRuby
 
     # Resume the animation
     #
-    # (see {pause})
+    # (see also {pause})
     def resume
       @pause = false
 
