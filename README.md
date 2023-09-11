@@ -102,7 +102,7 @@ First clone this repo locally:
 
 `git clone https://github.com/Chadowo/aniruby`
 
-Then you can use rake to build or test gem.
+Then you can use rake to build or test the gem.
 
 ## Roadmap
 
