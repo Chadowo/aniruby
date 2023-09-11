@@ -18,7 +18,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - **Important**: There was a error in `Animation#done?` too, where it'll return `false` always    
   independently of if the animation was finished, this was because I forgot to add a `return` in
   the condition check for the `true`.
-- `Animation#update` now resets the animation, instead of `Animation#draw`  
+- Internally, `Animation#update` now resets the animation, instead of `Animation#draw`  
 or `Animation#draw_rot` (I know, that sounds counterintuitive). This (I think) fixes a precision problem when drawing the last frame
 of an animation, in the which it was drawn for less time than required.
 
