@@ -38,7 +38,7 @@ for `Frame`.
 
 ### Fixed
 
-- Previously methods like `Animation#pause?` or `Animation#resume` didn't return `self`, so it wasn't possible to chaint them like this
+- Previously methods like `Animation#pause?` or `Animation#resume` didn't return `self`, so it wasn't possible to chain them like this
   ```ruby
   # Example
   my_animation.pause.resume.duration(200)
