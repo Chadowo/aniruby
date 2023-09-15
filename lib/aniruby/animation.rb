@@ -157,7 +157,7 @@ module AniRuby
       self
     end
 
-    alias :reset :reset!
+    alias :reset! :reset
 
     # Set the duration for all frames in the animation
     #
