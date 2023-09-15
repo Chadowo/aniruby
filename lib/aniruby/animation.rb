@@ -157,6 +157,8 @@ module AniRuby
       self
     end
 
+    alias :reset :reset!
+
     # Set the duration for all frames in the animation
     #
     # @param ms [Float] The new duration in milliseconds
