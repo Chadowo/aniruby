@@ -11,6 +11,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 - Aliased `Animation#reset` to `Animation#reset!`
 
+### Changed
+
+- Arguments `retro` and `loop` from `Animation#new` are now keyword arguments.
+
 ## 0.2.1 - 2023-09-07
 
 ### Fixed

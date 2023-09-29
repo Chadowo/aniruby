@@ -25,16 +25,17 @@ module AniRuby
     # @return [Animation] A new animation ready to play
     def initialize(spritesheet,
                    frame_w, frame_h,
-                   retro = false,
-                   loop = true,
-                   *durations)
+                   *durations,
+                   retro: false,
+                   loop: true)
       @frame_w = frame_w
       @frame_h = frame_h
 
       @loop = loop
+      @pause = false
 
       @position = 0
-      @pause = false
+      @step = 1
 
       @frames = AniRuby::Frames.new(Gosu::Image.load_tiles(spritesheet,
                                                            @frame_w,
@@ -78,7 +79,7 @@ module AniRuby
       return unless frame_expired? && !paused?
 
       if !done?
-        @position += 1
+        @position += @step
       elsif done? && @loop
         @position = 0
       end
