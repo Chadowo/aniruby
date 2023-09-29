@@ -15,12 +15,12 @@ module AniRuby
     # @param spritesheet [String] Path to the spritesheet file
     # @param frame_w [Integer] The width of each individual frame
     # @param frame_h [Integer] The height of each individual frame
-    # @param retro [Boolean] If true, the animation will not be interpolated when scaled
-    # @param loop [Boolean] If true, the animation will loop indefinitely
     # @param durations [Float] The duration of the frames in MS (0.5 is half a second,
     #                              1.0 a second, etc). If there's more than one duration
     #                              provided they will be mapped to each frame of the
     #                              animation. The default for each frame is 0.1.
+    # @param retro [Boolean] If true, the animation will not be interpolated when scaled
+    # @param loop [Boolean] If true, the animation will loop indefinitely
     #
     # @return [Animation] A new animation ready to play
     def initialize(spritesheet,
