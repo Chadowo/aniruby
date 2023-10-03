@@ -94,7 +94,7 @@ have to learn anything new.
 
 Each `Animation` has extra helpful methods, like `pause` & `unpause`, `reset`,
 `done?`, etc. I recommend you to look on the source, its pretty small and easy to
-understand, or build the YARD documentation with
+understand, or build the YARD documentation with:
 
 ```console
 rake doc
