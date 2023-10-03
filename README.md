@@ -16,7 +16,9 @@ its quite lightweight.
 
 You can install the gem with the following command:
 
-`gem install aniruby`
+```console
+gem install aniruby
+```
 
 or use it with a bundle:
 
@@ -94,13 +96,17 @@ Each `Animation` has extra helpful methods, like `pause` & `unpause`, `reset`,
 `done?`, etc. I recommend you to look on the source, its pretty small and easy to
 understand, or build the YARD documentation with
 
-`rake doc`
+```console
+rake doc
+```
 
 ## Development
 
 First clone this repo locally:
 
-`git clone https://github.com/Chadowo/aniruby`
+```console
+git clone https://github.com/Chadowo/aniruby
+```
 
 Then you can use rake to build or test the gem.
 
