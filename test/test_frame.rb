@@ -15,8 +15,6 @@ class FrameTest < Minitest::Test
     @sample_animation = AniRuby::Animation.new(media_dir('king_walk.png'),
                                                @sprite_w,
                                                @sprite_h,
-                                               false,
-                                               true,
                                                0.3, 0.3)
   end
 
