@@ -1,8 +1,9 @@
 # AniRuby
 
-![Gem (including prereleases)](https://img.shields.io/gem/v/aniruby?style=flat-square&logo=rubygems&logoColor=white&color=blue)
+![Gem (including prereleases)](https://img.shields.io/gem/v/aniruby?style=flat-square&logo=rubygems&logoColor=white&color=blue) ![GitHub Workflow Status (with event)](https://img.shields.io/github/actions/workflow/status/chadowo/aniruby/minitest.yml?style=flat-square&logo=github&label=minitest&link=https%3A%2F%2Fgithub.com%2FChadowo%2Faniruby%2Factions%2Fworkflows%2Fminitest.yml)
 
-Make sprite animations on Gosu, simply and easily. 
+
+Make sprite animations on Gosu, simply and easily.
 
 ## Summary
 
@@ -110,7 +111,7 @@ First clone this repo locally:
 git clone https://github.com/Chadowo/aniruby
 ```
 
-Next you'll need to install the development dependencies of this gem with 
+Next you'll need to install the development dependencies of this gem with
 `bundle install`, Then you can use `rake` to build or test the gem.
 
 ### Testing
