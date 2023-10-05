@@ -102,6 +102,8 @@ rake doc
 
 ## Development
 
+### Setup
+
 First clone this repo locally:
 
 ```console
@@ -111,7 +113,7 @@ git clone https://github.com/Chadowo/aniruby
 Next you'll need to install the development dependencies of this gem with 
 `bundle install`, Then can use `rake` to build or test the gem.
 
-### Tests
+### Testing
 
 [Minitest](https://github.com/minitest/minitest) is used to unit test this gem.
 To run the tests just call `rake`.
