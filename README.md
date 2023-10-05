@@ -114,7 +114,7 @@ Next you'll need to install the development dependencies of this gem with
 ### Tests
 
 [Minitest](https://github.com/minitest/minitest) is used to unit test this gem.
-To run the tests just call `Rake`.
+To run the tests just call `rake`.
 
 ## Roadmap
 
