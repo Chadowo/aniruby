@@ -10,7 +10,7 @@ This library will provide you with a nice n easy interface to do sprite animatio
 on [Gosu](https://www.libgosu.org/), while being as nifty and simple as possible.
 
 The library is made in pure Ruby with no dependencies at all (except Gosu, of course) so
-its quite lightweight.
+it's quite lightweight.
 
 ## Install
 
@@ -111,7 +111,7 @@ git clone https://github.com/Chadowo/aniruby
 ```
 
 Next you'll need to install the development dependencies of this gem with 
-`bundle install`, Then can use `rake` to build or test the gem.
+`bundle install`, Then you can use `rake` to build or test the gem.
 
 ### Testing
 
