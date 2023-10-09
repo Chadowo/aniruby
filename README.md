@@ -1,7 +1,6 @@
 # AniRuby
 
-![Gem (including prereleases)](https://img.shields.io/gem/v/aniruby?style=flat-square&logo=rubygems&logoColor=white&color=blue) ![GitHub Workflow Status (with event)](https://img.shields.io/github/actions/workflow/status/chadowo/aniruby/minitest.yml?style=flat-square&logo=github&label=minitest&link=https%3A%2F%2Fgithub.com%2FChadowo%2Faniruby%2Factions%2Fworkflows%2Fminitest.yml)
-
+![Gem (including prereleases)](https://img.shields.io/gem/v/aniruby?style=flat-square&logo=rubygems&logoColor=white&color=blue) ![GitHub Workflow Status (with event)](https://img.shields.io/github/actions/workflow/status/chadowo/aniruby/minitest.yml?style=flat-square&logo=github&label=minitest&link=https%3A%2F%2Fgithub.com%2FChadowo%2Faniruby%2Factions%2Fworkflows%2Fminitest.yml) ![GitHub](https://img.shields.io/github/license/chadowo/aniruby)
 
 Make sprite animations on Gosu, simply and easily.
 
