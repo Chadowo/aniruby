@@ -2,11 +2,10 @@
 require_relative 'lib/aniruby/version'
 
 Gem::Specification.new do |spec|
-  spec.name        = 'aniruby'
-  spec.version     = AniRuby::VERSION
-  spec.date        = Time.now.strftime "%Y-%m-%d"
-  spec.authors     = ['Chadow']
-  spec.homepage    = 'https://github.com/Chadowo/aniruby'
+  spec.name     = 'aniruby'
+  spec.version  = AniRuby::VERSION
+  spec.authors  = ['Chadow']
+  spec.homepage = 'https://github.com/Chadowo/aniruby'
 
   spec.summary     = 'Make sprite animations on Gosu, simply and easily'
   spec.description = <<~DESC
@@ -14,13 +13,13 @@ Gem::Specification.new do |spec|
     and nifty API, made in pure Ruby with no dependencies at all!
   DESC
 
-  spec.required_ruby_version = Gem::Requirement.new('>= 2.5.0')
+  spec.required_ruby_version = '>= 2.5.0'
 
   spec.requirements << 'Gosu installed and working'
 
-  spec.files       = Dir.glob('lib/**/*') + %w(Rakefile)
-  spec.files       += %w(README.md CHANGELOG.md LICENSE .yardopts)
-  spec.license     = 'MIT'
+  spec.files = Dir.glob('lib/**/*') + %w(Rakefile)
+  spec.files += %w[README.md CHANGELOG.md LICENSE .yardopts]
+  spec.license = 'MIT'
 
   spec.require_paths = ['lib']
 
@@ -29,4 +28,11 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency('minitest', ['~> 5.17.0'])
   spec.add_development_dependency('minitest-reporters', ['~> 1.6.0'])
   spec.add_development_dependency('rake', ['~> 13.0.0'])
+
+  spec.metadata = {
+    'bug_tracker_uri' => 'https://github.com/Chadowo/aniruby/issues',
+    'changelog_uri' => 'https://github.com/Chadowo/aniruby/blob/main/CHANGELOG.md',
+    'homepage_uri' => spec.homepage,
+    'source_code_uri' => 'https://github.com/Chadowo/aniruby'
+  }
 end
