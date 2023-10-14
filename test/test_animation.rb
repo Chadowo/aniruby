@@ -40,7 +40,7 @@ class AnimationTest < Minitest::Test
     assert_equal @sprite_w, @sample_animation.width
   end
 
-  # The width of the current frame
+  # The height of the current frame
   def test_sprite_height
     assert_equal @sprite_h, @sample_animation.height
   end
