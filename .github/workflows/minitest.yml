@@ -1,8 +1,8 @@
 
-name: Run MiniTest
+name: Ruby
 on: [push]
 jobs:
-  run-minitest:
+  test:
     runs-on: ubuntu-latest
     steps:
       - name: Install Gosu dependencies
