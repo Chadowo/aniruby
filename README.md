@@ -43,8 +43,7 @@ class MyWindow < Gosu::Window
     super(800, 600, false)
 
     @animation = AniRuby::Animation.new('my_spritesheet.png', 32, 32,
-                                        false, true,
-                                        0.15)
+                                        0.15, retro: false, loop: true)
   end
 
   def update
