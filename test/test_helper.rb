@@ -1,4 +1,3 @@
-
 require 'gosu'
 require 'minitest/reporters'
 
