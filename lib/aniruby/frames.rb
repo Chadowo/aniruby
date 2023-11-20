@@ -1,4 +1,3 @@
-
 module AniRuby
   # Collection of frames
   class Frames

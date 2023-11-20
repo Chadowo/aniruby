@@ -1,4 +1,3 @@
-
 module AniRuby
   # A frame has a sprite that's Gosu::Image and a duration specified in
   # milliseconds

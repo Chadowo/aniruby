@@ -1,4 +1,3 @@
-
 module AniRuby
   MAJOR = 0
   MINOR = 2

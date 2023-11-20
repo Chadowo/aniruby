@@ -1,4 +1,3 @@
-
 module AniRuby
   # Has a AniRuby::Frames colletion, with a simple counter to keep track of
   # current frame plus looping and pausing functionality
