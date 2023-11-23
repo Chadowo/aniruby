@@ -61,7 +61,7 @@ module AniRuby
       @frames[@position].width
     end
 
-    alias :w :width
+    alias w width
 
     # Get the height of the current frame's image
     #
@@ -70,7 +70,7 @@ module AniRuby
       @frames[@position].height
     end
 
-    alias :h :height
+    alias h height
 
     # Update the animation, advancing the frame counter. Note that this won't do
     # do anything if the animation is paused or has finished
@@ -157,7 +157,7 @@ module AniRuby
       self
     end
 
-    alias :reset! :reset
+    alias reset! reset
 
     # Set the duration for all frames in the animation
     #
