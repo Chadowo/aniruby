@@ -11,8 +11,8 @@ module AniRuby
     # @return [Integer]
     attr_reader :width, :height
 
-    alias :w :width
-    alias :h :height
+    alias w width
+    alias h height
 
     # Create a new frame
     #
