@@ -5,7 +5,7 @@ module AniRuby
     # @return [AniRuby::Frames] The collection of frames this animation uses
     attr_accessor :frames
     # @return [Integer] The current frame index of the animation
-    attr_accessor :position
+    attr_accessor :cursor
     # @return [Boolean] The loop parameter
     attr_accessor :loop
 
@@ -18,6 +18,7 @@ module AniRuby
     #                              1.0 a second, etc). If there's more than one duration
     #                              provided they will be mapped to each frame of the
     #                              animation. The default for each frame is 0.1.
+    #                              If the value is negative it'll default to 0.1.
     # @param retro [Boolean] If true, the animation will not be interpolated when scaled
     # @param loop [Boolean] If true, the animation will loop indefinitely
     #
@@ -33,13 +34,16 @@ module AniRuby
       @loop = loop
       @pause = false
 
-      @position = 0
+      @cursor = 0
       @step = 1
 
       @frames = AniRuby::Frames.new(Gosu::Image.load_tiles(spritesheet,
                                                            @frame_w,
                                                            @frame_h,
                                                            retro: retro))
+
+      # Default to 0.1 if the duration is negative
+      durations.map! { |dur| dur.negative? ? 0.1 : dur }
 
       # TODO: Maybe I could shorten this, adding an extra argument to
       #       AniRuby::Frames
@@ -58,7 +62,7 @@ module AniRuby
     #
     # @return [Integer]
     def width
-      @frames[@position].width
+      @frames[@cursor].width
     end
 
     alias w width
@@ -67,10 +71,12 @@ module AniRuby
     #
     # @return [Integer]
     def height
-      @frames[@position].height
+      @frames[@cursor].height
     end
 
     alias h height
+
+    # @!group Drawing
 
     # Update the animation, advancing the frame counter. Note that this won't do
     # do anything if the animation is paused or has finished
@@ -78,9 +84,9 @@ module AniRuby
       return unless frame_expired? && !paused?
 
       if !done?
-        @position += @step
+        @cursor += @step
       elsif done? && @loop
-        @position = 0
+        @cursor = 0
       end
     end
 
@@ -100,7 +106,7 @@ module AniRuby
              scale_y = 1,
              color = Gosu::Color::WHITE,
              mode = :default)
-      frame = @frames[@position]
+      frame = @frames[@cursor]
 
       frame.sprite.draw(x, y, z, scale_x, scale_y, color, mode)
     end
@@ -127,10 +133,14 @@ module AniRuby
                  scale_y = 1,
                  color = Gosu::Color::WHITE,
                  mode = :default)
-      frame = @frames[@position]
+      frame = @frames[@cursor]
 
       frame.sprite.draw_rot(x, y, z, angle, center_x, center_y, scale_x, scale_y, color, mode)
     end
+
+    # @!endgroup
+
+    # @!group Utility
 
     # Pause the animation
     #
@@ -152,7 +162,7 @@ module AniRuby
 
     # Set the animation to the beginning frame
     def reset
-      @position = 0
+      @cursor = 0
 
       self
     end
@@ -173,7 +183,7 @@ module AniRuby
     # @return [Boolean]
     # @note This method will return true in intervals if the animation loops
     def done?
-      return true if @position == @frames.count - 1
+      return true if @cursor == @frames.count - 1
 
       false
     end
@@ -191,15 +201,17 @@ module AniRuby
     #
     # @return [AniRuby::Frame]
     def current_frame
-      @frames[@position % @frames.count]
+      @frames[@cursor % @frames.count]
     end
+
+    # @!endgroup
 
     # Has the current frame's duration expired?
     def frame_expired?
       now = Gosu.milliseconds / 1000.0
       @last_frame ||= now
 
-      if (now - @last_frame) > @frames[@position].duration
+      if (now - @last_frame) > @frames[@cursor].duration
         @last_frame = now
       end
     end

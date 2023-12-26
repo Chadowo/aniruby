@@ -14,6 +14,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Changed
 
 - Arguments `retro` and `loop` from `Animation#new` are now keyword arguments.
+- Passing a negative value as duration to `Animation#new` will default to 0.1.
 
 ## 0.2.1 - 2023-09-07
 
