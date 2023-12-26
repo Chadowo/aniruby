@@ -1,5 +1,4 @@
 require 'minitest/autorun'
-
 require_relative '../lib/aniruby/version'
 
 class TestVersion < Minitest::Test
