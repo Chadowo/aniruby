@@ -12,9 +12,7 @@ class FramesTest < Minitest::Test
 
     @sample_animation = AniRuby::Animation.new(media_dir('king_walk.png'),
                                                @sprite_w,
-                                               @sprite_h,
-                                               false,
-                                               true)
+                                               @sprite_h)
   end
 
   def test_each
