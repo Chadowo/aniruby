@@ -16,7 +16,7 @@ Gem::Specification.new do |spec|
 
   spec.requirements << 'Gosu installed and working'
 
-  spec.files = Dir.glob('lib/**/*'
+  spec.files = Dir.glob('lib/**/*')
   spec.files += %w[README.md CHANGELOG.md LICENSE Rakefile .yardopts]
   spec.license = 'MIT'
 
