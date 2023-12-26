@@ -16,8 +16,8 @@ Gem::Specification.new do |spec|
 
   spec.requirements << 'Gosu installed and working'
 
-  spec.files = Dir.glob('lib/**/*') + %w(Rakefile)
-  spec.files += %w[README.md CHANGELOG.md LICENSE .yardopts]
+  spec.files = Dir.glob('lib/**/*'
+  spec.files += %w[README.md CHANGELOG.md LICENSE Rakefile .yardopts]
   spec.license = 'MIT'
 
   spec.require_paths = ['lib']
@@ -26,7 +26,9 @@ Gem::Specification.new do |spec|
 
   spec.add_development_dependency('minitest', ['~> 5.17.0'])
   spec.add_development_dependency('minitest-reporters', ['~> 1.6.0'])
-  spec.add_development_dependency('rake', ['~> 13.0.0'])
+  spec.add_development_dependency('rbs', ['~> 5.17.0'])
+  spec.add_development_dependency('rake', ['~> 3.3.0'])
+  spec.add_development_dependency('steep', ['~> 1.6'])
 
   spec.metadata = {
     'bug_tracker_uri' => 'https://github.com/Chadowo/aniruby/issues',
