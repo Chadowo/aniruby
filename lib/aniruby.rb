@@ -1,5 +1,4 @@
-require_relative 'aniruby/version'
-
-require_relative 'aniruby/frame'
-require_relative 'aniruby/frames'
-require_relative 'aniruby/animation'
+require 'aniruby/frame'
+require 'aniruby/frames'
+require 'aniruby/animation'
+require 'aniruby/version'
