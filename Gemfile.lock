@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    aniruby (0.2.1)
+    aniruby (0.2.2)
       gosu (>= 1.4.6)
 
 GEM
