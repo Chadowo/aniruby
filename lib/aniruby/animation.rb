@@ -31,6 +31,9 @@ module AniRuby
       @frame_w = frame_w
       @frame_h = frame_h
 
+      @flip_h = false
+      @flip_v = false
+
       @loop = loop
       @pause = false
 
@@ -108,7 +111,13 @@ module AniRuby
              mode = :default)
       frame = @frames[@cursor]
 
-      frame.sprite.draw(x, y, z, scale_x, scale_y, color, mode)
+      # Calculate the position on the case the animation is flipped
+      new_x = @flip_h ? x + (width * scale_x) : x
+      new_y = @flip_v ? y + (height * scale_y) : y
+      new_scale_x = @flip_h ? scale_x * -1 : scale_x
+      new_scale_y = @flip_v ? scale_y * -1 : scale_y
+
+      frame.sprite.draw(new_x, new_y, z, new_scale_x, new_scale_y, color, mode)
     end
 
     # Draw the animation rotated, with its rotational center at (x, y).
@@ -135,7 +144,18 @@ module AniRuby
                  mode = :default)
       frame = @frames[@cursor]
 
-      frame.sprite.draw_rot(x, y, z, angle, center_x, center_y, scale_x, scale_y, color, mode)
+      # Calculate the position on the case the animation is flipped
+      # TODO: angles are wonky
+      new_x = @flip_h ? x + (width * scale_x) : x
+      new_y = @flip_v ? y + (height * scale_y) : y
+      new_scale_x = @flip_h ? scale_x * -1 : scale_x
+      new_scale_y = @flip_v ? scale_y * -1 : scale_y
+      new_center_x = @flip_h ? center_x * -1 : center_x
+      new_center_y = @flip_v ? center_y * -1 : center_y
+
+      frame.sprite.draw_rot(new_x, new_y, z,
+                            angle, new_center_x, new_center_y,
+                            new_scale_x, new_scale_y, color, mode)
     end
 
     # @!endgroup
@@ -195,6 +215,26 @@ module AniRuby
       return true if @pause
 
       false
+    end
+
+    # True if the sprite is flipped horizontally
+    def flipped_h?
+      true if @flip_h
+    end
+
+    # True if the sprite is flipped vertically
+    def flipped_v?
+      true if @flip_v
+    end
+
+    # Toggle the horizontal flip
+    def flip_h!
+      @flip_h = !@flip_h
+    end
+
+    # Toggle the vertical flip
+    def flip_v!
+      @flip_v = !@flip_v
     end
 
     # Get the current frame
