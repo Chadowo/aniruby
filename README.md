@@ -33,7 +33,6 @@ gem 'aniruby'
 The smallest example:
 
 ```ruby
-
 require 'gosu'
 require 'aniruby'
 
