@@ -22,9 +22,9 @@
 
 module AniRuby
   MAJOR = 0
-  MINOR = 2
+  MINOR = 3
   PATCH = 2
 
   # See https://semver.org/
-  VERSION = "#{MAJOR}.#{MINOR}.#{PATCH}".freeze
+  VERSION = "#{MAJOR}.#{MINOR}.#{PATCH}.pre".freeze
 end
