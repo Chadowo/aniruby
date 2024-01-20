@@ -1,5 +1,6 @@
 require 'gosu'
 require 'minitest/reporters'
+require_relative '../lib/aniruby'
 
 module TestHelper
   # Get the abosule path to an asset under media/
