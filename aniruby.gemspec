@@ -6,7 +6,7 @@ Gem::Specification.new do |spec|
   spec.authors  = ['Chadow']
   spec.homepage = 'https://github.com/Chadowo/aniruby'
 
-  spec.summary     = 'Make sprite animations on Gosu, simply and easily'
+  spec.summary     = 'Create sprite animations on Gosu, simply and easily'
   spec.description = <<~DESC
     Library for painless sprite animations on Gosu, with an easy
     and nifty API, made in pure Ruby with no dependencies at all!
