@@ -23,6 +23,26 @@
 module AniRuby
   # Has an AniRuby::Frames colletion, with a simple counter to keep track of
   # current frame plus looping and pausing functionality
+  # @example Loading and Playing an Animation
+  #   require 'gosu'
+  #   require 'aniruby'
+  #
+  #   class MyWindow << Gosu::Window
+  #     def initialize
+  #       super(1280, 720, resizable: true)
+  #       @my_anim = AniRuby::Animation.new('path/to/spritesheet.png', 32, 32)
+  #     end
+  #
+  #     def update
+  #       # This line is very important, without it the animation will not play!
+  #       @my_anim.update
+  #     end
+  #
+  #     def draw
+  #       # Draw approximately in the center of the screen
+  #       @my_anim.draw(1280 / 2, 720 / 2, 0)
+  #     end
+  #   end
   class Animation
     # @return [AniRuby::Frames] The collection of frames this animation uses
     attr_accessor :frames
