@@ -126,4 +126,4 @@ To run the tests just call `rake`.
 
 ## License
 
-This library is licensed under the [MIT](LICENSE) license.
+This library is licensed under the [MIT License](LICENSE).
