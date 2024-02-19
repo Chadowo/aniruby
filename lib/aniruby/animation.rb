@@ -253,9 +253,10 @@ module AniRuby
       now = Gosu.milliseconds / 1000.0
       @last_frame ||= now
 
-      if (now - @last_frame) > @frames[@cursor].duration
-        @last_frame = now
-      end
+      return false unless (now - @last_frame) > @frames[@cursor].duration
+
+      @last_frame = now
+      true
     end
   end
 end
