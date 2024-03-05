@@ -90,10 +90,10 @@ module AniRuby
       # TODO: Maybe I could shorten this, adding an extra argument to
       #       AniRuby::Frames
       if durations.one?
-        @frames.each { |frame| frame.duration = durations[0]}
+        @frames.each { |frame| frame.duration = durations[0] }
       else
         @frames.each_with_index do |frame, idx|
-          # Set each frame to the duration provided, if there's no provide
+          # Set each frame to the duration provided, if there's no provided
           # duration for all frames then we'll leave it at the default
           frame.duration = durations[idx] unless durations[idx].nil?
         end
