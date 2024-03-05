@@ -86,14 +86,20 @@ module AniRuby
 
       # Default to 0.1 if the duration is negative
       durations.map! { |dur| dur.negative? ? 0.1 : dur }
+      apply_durations(durations, @frames)
+    end
 
-      # TODO: Maybe I could shorten this, adding an extra argument to
-      #       AniRuby::Frames
+    # If durations only contains one value, then it'll be applied
+    # to all the frames, otherwise each duration will be applied
+    # to the corresponding frame, until we run out of frames
+    def apply_durations(durations, frames)
       if durations.one?
-        @frames.each { |frame| frame.duration = durations[0] }
+        frames.each { |frame| frame.duration = durations[0] }
       else
         durations.each_with_index do |duration, idx|
-          @frames[idx].duration = duration
+          break if frames[idx].nil?
+
+          frames[idx].duration = duration
         end
       end
     end
