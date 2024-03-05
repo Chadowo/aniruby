@@ -11,9 +11,16 @@ class AnimationTest < Minitest::Test
 
     # This animation has 4 frames
     @sample_animation = AniRuby::Animation.new(media_dir('king_walk.png'),
-                                               @sprite_w,
-                                               @sprite_h,
+                                               @sprite_w, @sprite_h,
                                                @duration)
+  end
+
+  def test_extra_durations_are_discarded
+    # The king's walk animation has only four frames, but here
+    # we passed six durations
+    AniRuby::Animation.new(media_dir('king_walk.png'),
+                           @sprite_w, @sprite_h,
+                           0.1, 0.2, 0.3, 0.4, 0.5, 0.6)
   end
 
   def test_starts_at_zero
