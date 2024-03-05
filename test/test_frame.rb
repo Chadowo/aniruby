@@ -16,7 +16,7 @@ class FrameTest < Minitest::Test
   end
 
   # The sprite of a frame is a simple Gosu::Image
-  def test_sprite
+  def test_sprite_class
     @sample_animation.frames.each do |frame|
       assert_instance_of Gosu::Image, frame.sprite
     end
@@ -29,15 +29,15 @@ class FrameTest < Minitest::Test
     end
   end
 
+  # For the rest of the frames...
   def test_default_duration
-    # For the rest of the frames...
     @sample_animation.frames[2..3].each do |frame|
       assert_equal 0.1, frame.duration
     end
   end
 
   def test_dimensions
-    @sample_animation.frames[2..3].each do |frame|
+    @sample_animation.frames.each do |frame|
       assert_equal @sprite_w, frame.width
       assert_equal @sprite_h, frame.height
 
