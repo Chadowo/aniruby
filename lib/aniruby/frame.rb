@@ -21,8 +21,8 @@
 # SOFTWARE.
 
 module AniRuby
-  # A frame has a sprite that's Gosu::Image and a duration specified in
-  # milliseconds
+  # A frame is simply a sprite (Gosu::Image) with a duration specified in
+  # milliseconds and dimensions attributes.
   class Frame
     # @return [Float]
     attr_accessor :duration
