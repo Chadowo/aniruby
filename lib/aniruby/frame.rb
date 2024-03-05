@@ -36,7 +36,7 @@ module AniRuby
     alias w width
     alias h height
 
-    # Create a new frame
+    # Create a new frame.
     #
     # @param sprite [Gosu::Image]
     # @param duration [Float]

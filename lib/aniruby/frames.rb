@@ -21,11 +21,11 @@
 # SOFTWARE.
 
 module AniRuby
-  # Collection of frames
+  # Collection of frames.
   class Frames
     include Enumerable
 
-    # Create a new collection of frames
+    # Create a new collection of frames.
     #
     # @param sprites [Array<Gosu::Image>]
     def initialize(sprites)

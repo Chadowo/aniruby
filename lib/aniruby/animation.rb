@@ -22,7 +22,7 @@
 
 module AniRuby
   # Has an AniRuby::Frames colletion, with a simple counter to keep track of
-  # current frame plus looping and pausing functionality
+  # current frame plus looping and pausing functionality.
   # @example Loading and Playing an Animation
   #   require 'gosu'
   #   require 'aniruby'
@@ -44,27 +44,27 @@ module AniRuby
   #     end
   #   end
   class Animation
-    # @return [AniRuby::Frames] The collection of frames this animation uses
+    # @return [AniRuby::Frames] The collection of frames this animation uses.
     attr_accessor :frames
-    # @return [Integer] The current frame index of the animation
+    # @return [Integer] The current frame index of the animation.
     attr_accessor :cursor
-    # @return [Boolean] The loop parameter
+    # @return [Boolean] The loop parameter.
     attr_accessor :loop
 
-    # Create a new animation
+    # Create a new animation.
     #
-    # @param spritesheet [String] Path to the spritesheet file
-    # @param frame_w [Integer] The width of each individual frame
-    # @param frame_h [Integer] The height of each individual frame
+    # @param spritesheet [String] Path to the spritesheet file.
+    # @param frame_w [Integer] The width of each individual frame.
+    # @param frame_h [Integer] The height of each individual frame.
     # @param durations [Float] The duration of the frames in MS (0.5 is half a second,
     #                              1.0 a second, etc). If there's more than one duration
     #                              provided they will be mapped to each frame of the
     #                              animation. The default for each frame is 0.1.
     #                              If the value is negative it'll default to 0.1.
-    # @param retro [Boolean] If true, the animation will not be interpolated when scaled
-    # @param loop [Boolean] If true, the animation will loop indefinitely
+    # @param retro [Boolean] If true, the animation will not be interpolated when scaled.
+    # @param loop [Boolean] If true, the animation will loop indefinitely.
     #
-    # @return [Animation] A new animation ready to play
+    # @return [Animation] A new animation ready to play.
     def initialize(spritesheet,
                    frame_w, frame_h,
                    *durations,
@@ -104,7 +104,7 @@ module AniRuby
       end
     end
 
-    # Get the width of the current frame's image
+    # Get the width of the current frame's image.
     #
     # @return [Integer]
     def width
@@ -113,7 +113,7 @@ module AniRuby
 
     alias w width
 
-    # Get the height of the current frame's image
+    # Get the height of the current frame's image.
     #
     # @return [Integer]
     def height
@@ -136,15 +136,15 @@ module AniRuby
       end
     end
 
-    # Draw the animation
+    # Draw the animation.
     #
-    # @param x [Integer] The X coordinate
-    # @param y [Integer] The Y coordinate
-    # @param z [Integer] The Z order
-    # @param scale_x [Float] The horizontal scale factor
-    # @param scale_y [Float] The vertical scale factor
-    # @param color [Gosu::Color] The color to usw when drawing
-    # @param mode [:default, :additive] The blending mode
+    # @param x [Integer] The X coordinate.
+    # @param y [Integer] The Y coordinate.
+    # @param z [Integer] The Z order.
+    # @param scale_x [Float] The horizontal scale factor.
+    # @param scale_y [Float] The vertical scale factor.
+    # @param color [Gosu::Color] The color to usw when drawing.
+    # @param mode [:default, :additive] The blending mode.
     #
     # (see also {draw_rot})
     def draw(x, y, z = 0,
@@ -159,16 +159,16 @@ module AniRuby
 
     # Draw the animation rotated, with its rotational center at (x, y).
     #
-    # @param x [Integer] The X coordinate
-    # @param y [Integer] The Y coordinate
-    # @param z [Integer] The Z order
-    # @param angle [Float] The angle. in degrees
-    # @param center_x [Float] the relative horizontal rotation origin
-    # @param center_y [Float] the relative vertical rotation origin
-    # @param scale_x [Float] The horizontal scale factor
-    # @param scale_y [Float] The vertical scale factor
-    # @param color [Gosu::Color] The color to usw when drawing
-    # @param mode [:default, :additive] The blending mode
+    # @param x [Integer] The X coordinate.
+    # @param y [Integer] The Y coordinate.
+    # @param z [Integer] The Z order.
+    # @param angle [Float] The angle, in degrees.
+    # @param center_x [Float] the relative horizontal rotation origin.
+    # @param center_y [Float] the relative vertical rotation origin.
+    # @param scale_x [Float] The horizontal scale factor.
+    # @param scale_y [Float] The vertical scale factor.
+    # @param color [Gosu::Color] The color to usw when drawing.
+    # @param mode [:default, :additive] The blending mode.
     #
     # (see also {draw})
     def draw_rot(x, y, z = 0,
@@ -188,7 +188,7 @@ module AniRuby
 
     # @!group Utility
 
-    # Pause the animation
+    # Pause the animation.
     #
     # (see also {resume})
     def pause
@@ -197,7 +197,7 @@ module AniRuby
       self
     end
 
-    # Resume the animation
+    # Resume the animation.
     #
     # (see also {pause})
     def resume
@@ -206,7 +206,7 @@ module AniRuby
       self
     end
 
-    # Set the animation to the beginning frame
+    # Set the animation to the beginning frame.
     def reset
       @cursor = 0
 
@@ -215,9 +215,9 @@ module AniRuby
 
     alias reset! reset
 
-    # Set the duration for all frames in the animation
+    # Set the duration for all frames in the animation.
     #
-    # @param ms [Float] The new duration in milliseconds
+    # @param ms [Float] The new duration in milliseconds.
     def duration(ms)
       @frames.each { |frame| frame.duration = ms }
 
@@ -227,7 +227,7 @@ module AniRuby
     # Is the animation finished?
     #
     # @return [Boolean]
-    # @note This method will return true in intervals if the animation loops
+    # @note This method will return true in intervals if the animation loops.
     def done?
       return true if @cursor == @frames.count - 1
 
@@ -243,7 +243,7 @@ module AniRuby
       false
     end
 
-    # Get the current frame
+    # Get the current frame.
     #
     # @return [AniRuby::Frame]
     def current_frame
