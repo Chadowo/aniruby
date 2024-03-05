@@ -1,12 +1,12 @@
 AllCops:
   NewCops: enable
 
-Layout/LeadingEmptyLines:
-  Enabled: false
-
-Style/FrozenStringLiteralComment:
+Naming/MethodParameterName:
   Enabled: true
-  EnforcedStyle: never
+  AllowedNames:
+    - x
+    - y
+    - z
 
 Metrics/MethodLength:
   Enabled: true
@@ -15,3 +15,10 @@ Metrics/MethodLength:
 Metrics/ModuleLength:
   Enabled: true
   Max: 150
+
+Layout/LeadingEmptyLines:
+  Enabled: false
+
+Style/FrozenStringLiteralComment:
+  Enabled: true
+  EnforcedStyle: never
