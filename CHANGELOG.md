@@ -7,10 +7,6 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
-### Changed
-
-- `AniRuby::Animation#cursor` starts at 1, not 0.
-
 ## [0.2.2] - 2023-12-27
 
 ### Added

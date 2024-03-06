@@ -46,7 +46,7 @@ module AniRuby
   class Animation
     # @return [AniRuby::Frames] The collection of frames this animation uses.
     attr_accessor :frames
-    # @return [Integer] The index of the current frame, starts from 1.
+    # @return [Integer] The index of the current frame.
     attr_accessor :cursor
     # @return [Boolean] The loop parameter.
     attr_accessor :loop
@@ -76,7 +76,7 @@ module AniRuby
       @loop = loop
       @pause = false
 
-      @cursor = 1
+      @cursor = 0
       @step = 1
 
       @frames = AniRuby::Frames.new(Gosu::Image.load_tiles(spritesheet,
@@ -108,7 +108,7 @@ module AniRuby
     #
     # @return [Integer]
     def width
-      @frames[@cursor - 1].width
+      @frames[@cursor].width
     end
 
     alias w width
@@ -117,7 +117,7 @@ module AniRuby
     #
     # @return [Integer]
     def height
-      @frames[@cursor - 1].height
+      @frames[@cursor].height
     end
 
     alias h height
@@ -132,7 +132,7 @@ module AniRuby
       if !done?
         @cursor += @step
       elsif done? && @loop
-        @cursor = 1
+        @cursor = 0
       end
     end
 
@@ -141,7 +141,7 @@ module AniRuby
       now = Gosu.milliseconds / 1000.0
       @last_frame ||= now
 
-      return false unless (now - @last_frame) > @frames[@cursor - 1].duration
+      return false unless (now - @last_frame) > @frames[@cursor].duration
 
       @last_frame = now
       true
@@ -163,7 +163,7 @@ module AniRuby
              scale_y = 1,
              color = Gosu::Color::WHITE,
              mode = :default)
-      frame = @frames[@cursor - 1]
+      frame = @frames[@cursor]
 
       frame.sprite.draw(x, y, z, scale_x, scale_y, color, mode)
     end
@@ -190,7 +190,7 @@ module AniRuby
                  scale_y = 1,
                  color = Gosu::Color::WHITE,
                  mode = :default)
-      frame = @frames[@cursor - 1]
+      frame = @frames[@cursor]
 
       frame.sprite.draw_rot(x, y, z, angle, center_x, center_y, scale_x, scale_y, color, mode)
     end
@@ -219,7 +219,7 @@ module AniRuby
 
     # Set the animation to the initial frame.
     def reset
-      @cursor = 1
+      @cursor = 0
 
       self
     end
@@ -240,7 +240,7 @@ module AniRuby
     # @return [Boolean]
     # @note This method will return true in intervals if the animation loops.
     def done?
-      return true if @cursor == @frames.count
+      return true if @cursor == (@frames.count - 1)
 
       false
     end
@@ -258,7 +258,7 @@ module AniRuby
     #
     # @return [AniRuby::Frame]
     def current_frame
-      @frames[(@cursor - 1) % @frames.count]
+      @frames[(@cursor) % @frames.count]
     end
 
     # @!endgroup
