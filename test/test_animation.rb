@@ -23,18 +23,18 @@ class AnimationTest < Minitest::Test
                            0.1, 0.2, 0.3, 0.4, 0.5, 0.6)
   end
 
-  def test_starts_at_one
-    assert_equal 1, @sample_animation.cursor
+  def test_starts_at_zero
+    assert_equal 0, @sample_animation.cursor
   end
 
   def test_can_set_cursor
-    @sample_animation.cursor = 2
+    @sample_animation.cursor = 1
 
-    assert_equal 2, @sample_animation.cursor
+    assert_equal 1, @sample_animation.cursor
   end
 
   def test_is_done
-    @sample_animation.cursor = @sample_animation.frames.count
+    @sample_animation.cursor = @sample_animation.frames.count - 1
 
     assert_equal true, @sample_animation.done?
   end
@@ -83,10 +83,10 @@ class AnimationTest < Minitest::Test
 
   def test_can_be_reset
     # Set the cursor to something else than zero
-    @sample_animation.cursor = 2
-    assert_equal 2, @sample_animation.cursor
+    @sample_animation.cursor = 1
+    assert_equal 1, @sample_animation.cursor
 
     @sample_animation.reset
-    assert_equal 1, @sample_animation.cursor
+    assert_equal 0, @sample_animation.cursor
   end
 end
