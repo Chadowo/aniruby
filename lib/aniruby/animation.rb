@@ -104,20 +104,20 @@ module AniRuby
       end
     end
 
-    # Get the width of the current frame's image.
+    # Get the width of the current frame's sprite.
     #
     # @return [Integer]
     def width
-      @frames[@cursor].width
+      @frames[@cursor - 1].width
     end
 
     alias w width
 
-    # Get the height of the current frame's image.
+    # Get the height of the current frame's sprite.
     #
     # @return [Integer]
     def height
-      @frames[@cursor].height
+      @frames[@cursor - 1].height
     end
 
     alias h height
@@ -217,9 +217,9 @@ module AniRuby
       self
     end
 
-    # Set the animation to the beginning frame.
+    # Set the animation to the initial frame.
     def reset
-      @cursor = 0
+      @cursor = 1
 
       self
     end
