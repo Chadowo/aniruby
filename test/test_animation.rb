@@ -27,7 +27,7 @@ class AnimationTest < Minitest::Test
     assert_equal 1, @sample_animation.cursor
   end
 
-  def test_can_set_frame
+  def test_can_set_cursor
     @sample_animation.cursor = 2
 
     assert_equal 2, @sample_animation.cursor
