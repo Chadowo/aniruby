@@ -21,7 +21,7 @@
 # SOFTWARE.
 
 module AniRuby
-  # Has an AniRuby::Frames colletion, with a simple counter to keep track of
+  # Has a {Frames} colletion, with a simple counter to keep track of
   # current frame plus looping and pausing functionality.
   # @example Loading and Playing an Animation
   #   require 'gosu'
@@ -92,6 +92,12 @@ module AniRuby
     # If durations only contains one value, then it'll be applied
     # to all the frames, otherwise each duration will be applied
     # to the corresponding frame, until we run out of frames
+    #
+    # @api private
+    #
+    # @param durations [Array<Float>]
+    # @param frames [AniRuby::Frames]
+    # @return [void]
     def apply_durations(durations, frames)
       if durations.one?
         frames.each { |frame| frame.duration = durations[0] }
@@ -122,10 +128,10 @@ module AniRuby
 
     alias h height
 
-    # @!group Drawing
-
-    # Update the animation, advancing the frame counter. Note that this won't do
-    # do anything if the animation is paused or has finished
+    # Update the animation, advancing the frame counter.
+    #
+    # @return [void]
+    # @note Won't have any effect if the animation is paused.
     def update
       return unless frame_expired? && !paused?
 
@@ -147,6 +153,8 @@ module AniRuby
       true
     end
 
+    # @!group Drawing
+
     # Draw the animation.
     #
     # @param x [Integer] The X coordinate.
@@ -157,6 +165,7 @@ module AniRuby
     # @param color [Gosu::Color] The color to usw when drawing.
     # @param mode [:default, :additive] The blending mode.
     #
+    # @return [void]
     # @see draw_rot
     def draw(x, y, z = 0,
              scale_x = 1,
@@ -181,6 +190,7 @@ module AniRuby
     # @param color [Gosu::Color] The color to usw when drawing.
     # @param mode [:default, :additive] The blending mode.
     #
+    # @return [void]
     # @see draw
     def draw_rot(x, y, z = 0,
                  angle = 0,
@@ -201,6 +211,7 @@ module AniRuby
 
     # Pause the animation.
     #
+    # @return [self]
     # @see resume
     def pause
       @pause = true
@@ -210,6 +221,7 @@ module AniRuby
 
     # Resume the animation.
     #
+    # @return [self]
     # @see pause
     def resume
       @pause = false
@@ -217,7 +229,9 @@ module AniRuby
       self
     end
 
-    # Set the animation to the initial frame.
+    # Reset the animation to its initial frame.
+    #
+    # @return [self]
     def reset
       @cursor = 0
 
@@ -229,6 +243,8 @@ module AniRuby
     # Set the duration for all frames in the animation.
     #
     # @param ms [Float] The new duration in milliseconds.
+    #
+    # @return [self]
     def duration(ms)
       @frames.each { |frame| frame.duration = ms }
 
@@ -258,7 +274,7 @@ module AniRuby
     #
     # @return [AniRuby::Frame]
     def current_frame
-      @frames[(@cursor) % @frames.count]
+      @frames[@cursor % @frames.count]
     end
 
     # @!endgroup
