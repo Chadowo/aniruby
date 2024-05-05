@@ -7,7 +7,7 @@ Create sprite animations on [Gosu](https://www.libgosu.org/), simply and easily.
 ## Summary
 
 This library will provide you with a nice n easy interface to do sprite animations
-on [Gosu](https://www.libgosu.org/), while being as nifty and simple as possible.
+on Gosu, while being as nifty and simple as possible.
 
 The library is made in pure Ruby with no dependencies at all (except Gosu, of course) so
 it's quite lightweight.
