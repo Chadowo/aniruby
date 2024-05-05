@@ -7,6 +7,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Removed
+
+- Removed the alias `reset!` for `Animation#reset`, since I've got a fairly
+better understanding now of the convention for using a bang on methods name.
+
 ## [0.2.2] - 2023-12-27
 
 ### Added
