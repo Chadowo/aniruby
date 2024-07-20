@@ -6,10 +6,10 @@ Create sprite animations on [Gosu](https://www.libgosu.org/), simply and easily.
 
 ## Summary
 
-This library will provide you with a nice n easy interface to do sprite animations
+This gem will provide you with a nice n easy interface to do sprite animations
 on Gosu, while being as nifty and simple as possible.
 
-The library is made in pure Ruby with no dependencies at all (except Gosu, of course) so
+The gem is made in pure Ruby with no dependencies at all (except Gosu, of course) so
 it's quite lightweight.
 
 ## Install
@@ -23,8 +23,6 @@ gem install aniruby
 or use it with a bundle:
 
 ```ruby
-# Somewhere in your Gemfile
-
 gem 'aniruby'
 ```
 
@@ -126,4 +124,4 @@ To run the tests just call `rake`.
 
 ## License
 
-This library is licensed under the [MIT license](LICENSE).
+This gem is licensed under the [MIT license](LICENSE).
