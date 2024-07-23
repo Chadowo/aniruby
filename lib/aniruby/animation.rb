@@ -21,7 +21,7 @@
 # SOFTWARE.
 
 module AniRuby
-  # Has a {Frames} colletion, with a simple counter to keep track of
+  # Has a {Frames} collection, with a simple counter to keep track of
   # current frame plus looping and pausing functionality.
   # @example Loading and Playing an Animation
   #   require 'gosu'
