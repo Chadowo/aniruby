@@ -115,4 +115,11 @@ class AnimationTest < Minitest::Test
     assert_mock mock_w
     assert_mock mock_h
   end
+
+  def test_error_when_frame_size_is_zero
+    assert_raises ArgumentError do
+      AniRuby::Animation.new(media_dir('king_walk.png'),
+                             0, 0)
+    end
+  end
 end

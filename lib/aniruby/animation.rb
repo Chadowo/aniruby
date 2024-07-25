@@ -73,6 +73,11 @@ module AniRuby
       @frame_w = frame_w.to_i
       @frame_h = frame_h.to_i
 
+      # Otherwise a floating point exception will ocurr
+      if @frame_w.zero? || @frame_h.zero?
+        raise ArgumentError, 'frame size must not be zero'
+      end
+
       @loop = loop
       @pause = false
 

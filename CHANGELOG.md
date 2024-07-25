@@ -22,6 +22,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 - `AniRuby::Animation#new` now accepts any object that defines `#to_i` as `frame_w`
   and `frame_h` respectively.
+- `AniRuby::Animatin#new` will now raise an `ArgumentError` if either `frame_w` or `frame_h`
+  are zero instead of a floating point exception.
 
 ### Removed
 
