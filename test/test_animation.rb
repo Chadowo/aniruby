@@ -23,32 +23,6 @@ class AnimationTest < Minitest::Test
                            0.1, 0.2, 0.3, 0.4, 0.5, 0.6)
   end
 
-  def test_duration_for_range_of_frames
-    # The first two frames have a duration of 0.5 and the last two 0.9
-    default_durations = {0..1 => 0.5, 2..3 => 0.9}
-
-    anim = AniRuby::Animation.new(media_dir('king_walk.png'),
-                                  @sprite_w, @sprite_h,
-                                  default_durations)
-
-    anim.frames[0..1].each { |f| assert_equal 0.5, f.duration }
-    anim.frames[2..3].each { |f| assert_equal 0.9, f.duration }
-  end
-
-  def test_calls_to_i_on_frame_size_args
-    mock_w = Minitest::Mock.new
-    mock_w.expect :to_i, 16
-
-    mock_h = Minitest::Mock.new
-    mock_h.expect :to_i, 23
-
-    AniRuby::Animation.new(media_dir('king_walk.png'),
-                           mock_w, mock_h)
-
-    assert_mock mock_w
-    assert_mock mock_h
-  end
-
   def test_starts_at_zero
     assert_equal 0, @sample_animation.cursor
   end
@@ -114,5 +88,31 @@ class AnimationTest < Minitest::Test
 
     @sample_animation.reset
     assert_equal 0, @sample_animation.cursor
+  end
+
+  def test_duration_for_range_of_frames
+    # The first two frames have a duration of 0.5 and the last two 0.9
+    default_durations = {0..1 => 0.5, 2..3 => 0.9}
+
+    anim = AniRuby::Animation.new(media_dir('king_walk.png'),
+                                  @sprite_w, @sprite_h,
+                                  default_durations)
+
+    anim.frames[0..1].each { |f| assert_equal 0.5, f.duration }
+    anim.frames[2..3].each { |f| assert_equal 0.9, f.duration }
+  end
+
+  def test_calls_to_i_on_frame_size_args
+    mock_w = Minitest::Mock.new
+    mock_w.expect :to_i, 16
+
+    mock_h = Minitest::Mock.new
+    mock_h.expect :to_i, 23
+
+    AniRuby::Animation.new(media_dir('king_walk.png'),
+                           mock_w, mock_h)
+
+    assert_mock mock_w
+    assert_mock mock_h
   end
 end
