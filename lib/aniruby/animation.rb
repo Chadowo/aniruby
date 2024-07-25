@@ -54,8 +54,8 @@ module AniRuby
     # Create a new animation.
     #
     # @param spritesheet [String] Path to the spritesheet file.
-    # @param frame_w [Integer] The width of each individual frame.
-    # @param frame_h [Integer] The height of each individual frame.
+    # @param frame_w [Integer, #to_i] The width of each individual frame.
+    # @param frame_h [Integer, #to_i] The height of each individual frame.
     # @param durations [Float] The duration of the frames in MS (0.5 is half a second,
     #                              1.0 a second, etc). If there's more than one duration
     #                              provided they will be mapped to each frame of the
@@ -70,8 +70,8 @@ module AniRuby
                    *durations,
                    retro: false,
                    loop: true)
-      @frame_w = frame_w
-      @frame_h = frame_h
+      @frame_w = frame_w.to_i
+      @frame_h = frame_h.to_i
 
       @loop = loop
       @pause = false
@@ -84,8 +84,6 @@ module AniRuby
                                                            @frame_h,
                                                            retro: retro))
 
-      # Default to 0.1 if the duration is negative
-      durations.map! { |dur| dur.negative? ? 0.1 : dur }
       apply_durations(durations, @frames)
     end
 
@@ -99,13 +97,24 @@ module AniRuby
     # @param frames [AniRuby::Frames]
     # @return [void]
     def apply_durations(durations, frames)
-      if durations.one?
-        frames.each { |frame| frame.duration = durations[0] }
+      if durations.first.is_a?(Hash)
+        durations.first.each do |k, v|
+          frames[k].map! { |f| f.duration = v }
+        end
       else
-        durations.each_with_index do |duration, idx|
-          break if frames[idx].nil?
+        # Default to 0.1 if the duration is negative
+        # OPTIMIZE: In case durations are more than one, we'll be traversing
+        #           through the whole array two times
+        durations.map! { |dur| dur.negative? ? 0.1 : dur }
 
-          frames[idx].duration = duration
+        if durations.one?
+          frames.each { |frame| frame.duration = durations[0] }
+        else
+          durations.each_with_index do |duration, idx|
+            break if frames[idx].nil?
+
+            frames[idx].duration = duration
+          end
         end
       end
     end

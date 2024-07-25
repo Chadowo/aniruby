@@ -7,6 +7,22 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Added
+
+- New syntax for specifying durations for a range of frames:
+  ```ruby
+  # The first three frames (represented by the range 0..2) will have a
+  # duration of 0.3 (300ms), and the last two frames, 0.2 (200ms)
+  anim = AniRuby::Animation('my_spritesheet.png', 32, 32
+                            {0..2 => 0.3,
+                             3..4 => 0.2})
+  ```
+
+### Changed
+
+- `AniRuby::Animation#new` now accepts any object that defines `#to_i` as `frame_w`
+  and `frame_h` respectively.
+
 ### Removed
 
 - Removed the alias `reset!` for `Animation#reset`, since I've got a fairly
